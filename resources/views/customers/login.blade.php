@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Connect Plus</title>
+    <title>Login</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../admin/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -31,15 +31,21 @@
                 </div>
                 <h4>Hello! let's get started</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
-                <form class="pt-3">
+                <form class="pt-3" action="{{route('loginProcess')}}" method="POST">
+                  @if (Session::has('fail'))
+                    <div class="alert alert-danger">
+                      {{Session::get('fail')}}
+                    </div>
+                  @endif
+                  @csrf
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="customerEmail" placeholder="Email">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="customerPass" placeholder="Password">
                   </div>
                   <div class="mt-3">
-                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../admin/index.html">SIGN IN</a>
+                    <button class="btn btn-primary" type="submit">SIGN IN</button>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
@@ -52,7 +58,7 @@
                     <button type="button" class="btn btn-block btn-facebook auth-form-btn">
                       <i class="mdi mdi-facebook me-2"></i>Connect using facebook </button>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href={{url('customers/register')}} class="text-primary">Create</a>
+                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="{{url('customers/register')}}" class="text-primary">Create</a>
                   </div>
                 </form>
               </div>

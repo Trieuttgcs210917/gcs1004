@@ -19,12 +19,13 @@ Route::post('update',[ProductController::class, 'update']);
 Route::get('delete/{id}',[ProductController::class, 'delete']);
 */
 
-Route::get('customers/index',[ProductController::class, 'index']);
+Route::get('customers/index',[CustomerController::class, 'index']);
 Route::get('customers/products', [ProductController::class, 'products']);
+
 Route::get('customers/register', [CustomerController::class, 'register']);
 Route::post('customers/registerProcess', [CustomerController::class, 'registerProcess'])->name('registerProcess');
 Route::get('customers/login', [CustomerController::class, 'login']);
-Route::post('customers/loginProcess', [CustomerController::class, 'loginProcess']);
+Route::post('customers/loginProcess', [CustomerController::class, 'loginProcess'])->name('loginProcess');
 Route::get('customers/logout', [CustomerController::class, 'logout']);
 
 Route::get('admin/index', [AdminController::class, 'index']);

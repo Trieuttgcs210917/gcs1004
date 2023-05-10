@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Connect Plus</title>
+    <title>Register</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../admin/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -31,27 +31,25 @@
                 </div>
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-                <form class="pt-3" actions="{{route('registerProcess')}}" method="POST">
+                <form class="pt-3" action="{{url('customers/registerProcess')}}" method="POST" enctype="multipart/form-data">
+                  @csrf
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                    <input type="email" class="form-control" name="email" placeholder="Email">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control" name="pass" placeholder="Password">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputcfPassword1" placeholder="Confirm Password">
+                    <input type="name" class="form-control" name="name" placeholder="Name">
                   </div>
                   <div class="form-group">
-                    <input type="name" class="form-control form-control-lg" id="exampleInputName1" placeholder="Name">
+                    <input type="address" class="form-control" name="address" placeholder="Address">
                   </div>
                   <div class="form-group">
-                    <input type="address" class="form-control form-control-lg" id="exampleInputAddress1" placeholder="Address">
+                    <input type="phone" class="form-control" name="phone" placeholder="Phone">
                   </div>
                   <div class="form-group">
-                    <input type="phone" class="form-control form-control-lg" id="exampleInputPhone1" placeholder="Phone">
-                  </div>
-                  <div class="form-group">
-                    <input type="file" class="form-control form-control-lg" id="exampleInputPhoto1" placeholder="Photo">
+                    <input type="file" class="form-control" name="photo" placeholder="Photo">
                   </div>
                   <div class="mb-4">
                     <div class="form-check">
@@ -60,9 +58,9 @@
                     </div>
                   </div>
                   <div class="mt-3">
-                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit">Sign up</button>
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Sign up</button>
                   </div>
-                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href={{url('customers/login')}} class="text-primary">Login</a>
+                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="{{url('customers/login')}}" class="text-primary">Login</a>
                   </div>
                 </form>
               </div>

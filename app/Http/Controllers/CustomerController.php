@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
+    public function index() {
+        $products = Product::all();
+        return view('customers.index', compact('products'));
+    }
+
     public function register()
     {
         return view('customers.register');
@@ -23,20 +29,20 @@ class CustomerController extends Controller
     {
         $cus = new Customer();
         $cus->customerEmail = $request->email;
-        $cus->customerPass = Hash::make($request->password);
+        $cus->customerPass = Hash::make($request->pass);
         $cus->customerName = $request->name;
         $cus->customerAddress = $request->address;
         $cus->customerPhone = $request->phone;
         $cus->customerPhoto = $request->photo;
         $cus->save();
-        return redirect('customer/login');
+        return redirect('customers/login');
     }
 
     public function loginProcess(Request $request)
     {
-        $cus = Customer::where('customerEmail', '=', $request->email)->first();
+        $cus = Customer::where('customerEmail', '=', $request->customerEmail)->first();
         if($cus) {
-            if(Hash::check($request->pass, $cus->customerPass)) {
+            if(Hash::check($request->customerPass, $cus->customerPass)) {
                 $request->session()->put('customerEmail', $cus->customerEmail);
                 $request->session()->put('customerPass', $cus->customerPass);
                 $request->session()->put('customerName', $cus->customerName);

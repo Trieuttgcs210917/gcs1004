@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Connect Plus</title>
+    <title>Admin Login</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -39,13 +39,13 @@
                     @endif
                     @csrf
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" name="adminID" placeholder="Username">
+                    <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" name="adminID" placeholder="Admin ID">
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="adminPass" placeholder="Password">
                   </div>
                   <div class="mt-3">
-                    <button class="btn btn-primary" type="submit">Sign in</button>
+                    <button class="btn btn-primary" type="submit" href={{url('admin/index')}}>Sign in</button>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">

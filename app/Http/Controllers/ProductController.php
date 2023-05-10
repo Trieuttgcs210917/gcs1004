@@ -60,10 +60,7 @@ class ProductController extends Controller
         return redirect()->back()->with('success','Product deleted successfully!');
     }*/
 
-    public function index()
-    {
-        return view('customers.index');
-    }
+    
     public function products()
     {
         $data = Product::select('products.*', 'categories.catName')
@@ -79,14 +76,5 @@ class ProductController extends Controller
         ->get();
         return view('admin.products', compact('data'));
     }
-
-
-    
-
-    
-
-    
-
-    
 }
 
