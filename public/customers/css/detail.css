@@ -1,0 +1,39 @@
+.detail {
+  display: block;
+}
+
+.detail-right {
+  float: right;
+  display: grid;
+  width: 50%;
+  font-size: 17px;
+}
+
+.detail-left {
+  float: left;
+  width: 50%;
+}
+
+.detail-right p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.detail img {
+  width: 70%;
+  height: 70%;
+}
+
+.detail-component {
+  height: 32px;
+}
+
+.p {
+  float: left;
+  height: 30px;
+}
+
+.span {
+  float: right;
+  height: 30px;
+}

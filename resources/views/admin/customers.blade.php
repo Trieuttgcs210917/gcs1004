@@ -7,33 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin Panel</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../../admin/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../../admin/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../admin/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../admin/assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="../../admin/assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../../admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="../admin/assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="../../admin/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../admin/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
     <div class="container-scroller">
-        <!-- partial:../../../../partials/_navbar.html -->
+        <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href={{ url('customers/index') }}><img
-                        src="../../admin/assets/images/logo.svg" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="../../../../index.html"><img
-                        src="../../admin/assets/images/logo-mini.svg" alt="logo" /></a>
+                        src="../admin/assets/images/logo.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="../../index.html"><img
+                        src="../admin/assets/images/logo-mini.svg" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -109,7 +109,7 @@
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../../admin/assets/pro_img/{{ Session::get('adminPhoto') }}" alt="image">
+                                <img src="assets/pro_img/{{ Session::get('adminPhoto') }}" alt="image">
                             </div>
                             <div class="nav-profile-text">
                                 <p class="mb-1 text-black">{{ Session::get('adminFullname') }}</p>
@@ -171,7 +171,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="../../../../assets/images/faces/face4.jpg" alt="image"
+                                    <img src="../../assets/images/faces/face4.jpg" alt="image"
                                         class="profile-pic">
                                 </div>
                                 <div
@@ -184,7 +184,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="../../../../assets/images/faces/face2.jpg" alt="image"
+                                    <img src="../../assets/images/faces/face2.jpg" alt="image"
                                         class="profile-pic">
                                 </div>
                                 <div
@@ -197,7 +197,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="../../../../assets/images/faces/face3.jpg" alt="image"
+                                    <img src="../../assets/images/faces/face3.jpg" alt="image"
                                         class="profile-pic">
                                 </div>
                                 <div
@@ -273,7 +273,7 @@
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:../../../../partials/_sidebar.html -->
+            <!-- partial:../../partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item nav-category">Main</li>
@@ -327,8 +327,8 @@
                                 <div>
                                     <div class="d-flex align-items-center">
                                         <div class="sidebar-profile-img">
-                                            <img src="../../admin/assets/pro_img/{{ Session::get('adminPhoto') }}"
-                                                alt="image" width="20px" height="20px">
+                                            <img src="assets/pro_img/{{ Session::get('adminPhoto') }}" alt="image"
+                                                width="20px" height="20px">
                                         </div>
                                         <div class="sidebar-profile-text">
                                             <p class="mb-1">{{ Session::get('adminFullname') }}</p>
@@ -354,7 +354,8 @@
                     </li>
                     <li class="nav-item sidebar-user-actions">
                         <div class="sidebar-user-menu">
-                            <a href="#" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+                            <a href="{{ route('logout') }}" class="nav-link"><i
+                                    class="mdi mdi-logout menu-icon"></i>
                                 <span class="menu-title">Log Out</span></a>
                         </div>
                     </li>
@@ -376,63 +377,59 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>Update product</h2>
+                                    <h2>Customer List</h2>
                                     @if (Session::has('success'))
                                         <div class="alert alert-success" role="alert">
                                             {{ Session::get('success') }}
                                         </div>
                                     @endif
-                                    <form action="{{ url('admin/update') }}" method="POST">
-                                        @csrf
-                                        <div class="mb-3 mt-3">
-                                            <label for="id">Product ID:</label>
-                                            <input type="text" class="form-control" id="id" readonly
-                                                value="{{ $data->productID }}" name=id>
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="name">Name:</label>
-                                            <input type="text" class="form-control" id="name"
-                                                value="{{ $data->productName }}" name="name">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="price">Price:</label>
-                                            <input type="number" class="form-control" id="price"
-                                                value="{{ $data->productPrice }}" name="price">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="image">Image:</label>
-                                            <input type="file" class="form-control" id="image"
-                                                name="image">
-                                            <input type="text" class="form-control" id="old_image"
-                                                name="old_image" value="{{ $data->productImage }}">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="details">Details:</label>
-                                            <textarea class="form-control" rows="5" id="details" name="details">
-                            {{ $data->productDetails }}
-                        </textarea>
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="category">Category:</label>
-                                            <select name="category" id="category" class="form-control">
-                                                @foreach ($category as $cat)
-                                                    <option value="{{ $cat->catID }}"
-                                                        {{ $cat->catID == $data->catID ? 'selected' : '' }}>
-                                                        {{ $cat->catName }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <button type="update" class="btn btn-primary">Update</button>
-                                        <a href="{{ url('admin/products') }}" class="btn btn-danger"> Back </a>
-                                    </form>
+                                    <div style="margin-right: 5%; margin-bottom: 20px; float:right">
+                                        <a href="{{ route('addCustomer') }}" class="btn btn-primary">Add
+                                            customer</a>
+                                    </div>
+                                    <table id="myDataTable" class="table table-hover">
+                                        <thead class="table-success">
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Customer name</th>
+                                                <th>Password</th>
+                                                <th>Photo</th>
+                                                <th>Address</th>
+                                                <th>Phone</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data as $customer)
+                                                <tr>
+                                                    <td>{{ $customer->customerEmail }}</td>
+                                                    <td>{{ $customer->customerName }}</td>
+                                                    <td>
+                                                        <Textarea>{{ $customer->customerPass }}</Textarea>
+                                                    </td>
+                                                    <td><img src="{{ asset('admin/assets/pro_img/' . $customer->customerPhoto) }}"
+                                                            alt="" style="border-radius: 0%"></td>
+                                                    <td>{{ $customer->customerAddress }}</td>
+                                                    <td>{{ $customer->customerPhone }}</td>
+                                                    <td>
+                                                        <a href="{{ url('admin/editCustomer/' . $customer->customerEmail) }}"
+                                                            title="Edit this customer"><i
+                                                                class="fa-solid fa-pen-to-square"></i></a> &nbsp;
+                                                        <a href="{{ url('admin/deleteCustomer/' . $customer->customerEmail) }}"
+                                                            title="Delete this customer"><i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- content-wrapper ends -->
-                <!-- partial:../../../../partials/_footer.html -->
+                <!-- partial:../../partials/_footer.html -->
                 <footer class="footer">
                     <div class="footer-inner-wraper">
                         <div class="d-sm-flex justify-content-center justify-content-sm-between py-2">
@@ -453,14 +450,14 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../../admin/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="../../admin/assets/js/off-canvas.js"></script>
-    <script src="../../admin/assets/js/hoverable-collapse.js"></script>
-    <script src="../../admin/assets/js/misc.js"></script>
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\Product;
 use App\Models\Category;
-
+use App\Models\Customer;
 
 class AdminController extends Controller
 {
@@ -91,5 +92,95 @@ class AdminController extends Controller
     {
         $data = Product::where('productID', '=', $id)->delete();
         return redirect()->back()->with('success','Product deleted successfully!');
+    }
+
+    public function customers()
+    {
+        $data = Customer::all();
+        return view('admin.customers', compact('data'));
+    }
+
+    public function addCustomer()
+    {
+        return view('admin/addCustomer');
+    }
+
+    public function saveCustomer(Request $request)
+    {
+        $pro = new Customer();
+        $pro->customerEmail = $request->email;
+        $pro->customerName = $request->name;
+        $pro->customerPass = Hash::make($request->pass);
+        $pro->customerPhoto = $request->photo;
+        $pro->customerAddress = $request->address;
+        $pro->customerPhone = $request->phone;
+        $pro->save();
+        return redirect('admin/customers')->with('success','Customer added successfully!');
+    }
+
+    public function editCustomer($id)
+    {
+        $eCus = Customer::where('customerEmail', $id)->first();
+        return view('admin/editCustomer', compact('eCus'));
+    }
+
+    public function updateCustomer(Request $request)
+    {
+        Customer::where('customerEmail', '=', $request->email)->update([
+            'customerName' => $request->name,
+            'customerPass' => $request->pass,
+            'customerPhoto' => $request->photo,
+            'customerAddress' => $request->address,
+            'customerPhone' => $request->phone
+        ]);
+        return redirect('admin/customers')->with('success','Customer update successfully!');
+    }
+    
+    public function deleteCustomer($id)
+    {
+        $dCus = Customer::where('customerEmail', '=', $id)->delete();
+        return redirect('admin/customers')->with('success','Customer deleted successfully!');
+    }
+
+    public function categories()
+    {
+        $data = Category::all();
+        return view('admin/categories', compact('data'));
+    }
+
+    public function addcategory()
+    {
+        return view('admin/addCategory');
+    }
+
+    public function saveCategory(Request $request)
+    {
+        $pro = new Category();
+        $pro->catID = $request->id;
+        $pro->catName = $request->name;
+        $pro->catDescriptions = $request->description;
+        $pro->save();
+        return redirect('admin/categories')->with('success','Category added successfully!');
+    }
+
+    public function editCategory($id)
+    {
+        $eCus = Category::where('catID', $id)->first();
+        return view('admin/editCategory', compact('eCus'));
+    }
+
+    public function updateCategory(Request $request)
+    {
+        Category::where('catID', '=', $request->id)->update([
+            'catName' => $request->name,
+            'catDescriptions' => $request->description,
+        ]);
+        return redirect('admin/categories')->with('success','Category update successfully!');
+    }
+    
+    public function deleteCategory($id)
+    {
+        $dCus = Category::where('catID', '=', $id)->delete();
+        return redirect('admin/categories')->with('success','category deleted successfully!');
     }
 }

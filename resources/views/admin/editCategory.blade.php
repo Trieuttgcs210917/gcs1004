@@ -376,55 +376,32 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>Update product</h2>
+                                    <h2>Update category</h2>
                                     @if (Session::has('success'))
                                         <div class="alert alert-success" role="alert">
                                             {{ Session::get('success') }}
                                         </div>
                                     @endif
-                                    <form action="{{ url('admin/update') }}" method="POST">
+                                    <form action="{{ url('admin/updateCategory') }}" method="POST">
                                         @csrf
                                         <div class="mb-3 mt-3">
-                                            <label for="id">Product ID:</label>
-                                            <input type="text" class="form-control" id="id" readonly
-                                                value="{{ $data->productID }}" name=id>
+                                            <label for="id">Category id:</label>
+                                            <input value="{{ $eCus->catID }}" readonly type="id"
+                                                class="form-control" id="id" placeholder="Enter category id"
+                                                name="id">
                                         </div>
                                         <div class="mb-3 mt-3">
-                                            <label for="name">Name:</label>
-                                            <input type="text" class="form-control" id="name"
-                                                value="{{ $data->productName }}" name="name">
+                                            <label for="name">Category name:</label>
+                                            <input value="{{ $eCus->catName }}" type="text" class="form-control"
+                                                id="name" placeholder="Enter category name" name="name">
                                         </div>
                                         <div class="mb-3 mt-3">
-                                            <label for="price">Price:</label>
-                                            <input type="number" class="form-control" id="price"
-                                                value="{{ $data->productPrice }}" name="price">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="image">Image:</label>
-                                            <input type="file" class="form-control" id="image"
-                                                name="image">
-                                            <input type="text" class="form-control" id="old_image"
-                                                name="old_image" value="{{ $data->productImage }}">
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="details">Details:</label>
-                                            <textarea class="form-control" rows="5" id="details" name="details">
-                            {{ $data->productDetails }}
-                        </textarea>
-                                        </div>
-                                        <div class="mb-3 mt-3">
-                                            <label for="category">Category:</label>
-                                            <select name="category" id="category" class="form-control">
-                                                @foreach ($category as $cat)
-                                                    <option value="{{ $cat->catID }}"
-                                                        {{ $cat->catID == $data->catID ? 'selected' : '' }}>
-                                                        {{ $cat->catName }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <label for="description">Description:</label>
+                                            <input value="{{ $eCus->catDescriptions }}" type="text"
+                                                class="form-control" id="description" name="description">
                                         </div>
                                         <button type="update" class="btn btn-primary">Update</button>
-                                        <a href="{{ url('admin/products') }}" class="btn btn-danger"> Back </a>
+                                        <a href="{{ url('admin/categorys') }}" class="btn btn-danger"> Back </a>
                                     </form>
                                 </div>
                             </div>

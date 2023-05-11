@@ -76,5 +76,15 @@ class ProductController extends Controller
         ->get();
         return view('admin.products', compact('data'));
     }
+
+    public function productDetail($id)
+    {
+        $product = Product::select('products.*', 'categories.catName')
+                            ->join('categories', 'products.catID', '=', 'categories.catID')
+                            ->where('productID', $id)
+                            ->get();
+        $category = Category::all();
+        return view('customers.productDetail', compact('product','category'));
+    }
 }
 

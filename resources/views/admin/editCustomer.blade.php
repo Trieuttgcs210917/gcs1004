@@ -376,55 +376,51 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>Update product</h2>
+                                    <h2>Update customer</h2>
                                     @if (Session::has('success'))
                                         <div class="alert alert-success" role="alert">
                                             {{ Session::get('success') }}
                                         </div>
                                     @endif
-                                    <form action="{{ url('admin/update') }}" method="POST">
+                                    <form action="{{ url('admin/updateCustomer') }}" method="POST">
                                         @csrf
                                         <div class="mb-3 mt-3">
-                                            <label for="id">Product ID:</label>
-                                            <input type="text" class="form-control" id="id" readonly
-                                                value="{{ $data->productID }}" name=id>
+                                            <label for="email">Customer Email:</label>
+                                            <input value="{{ $eCus->customerEmail }}" readonly type="email"
+                                                class="form-control" id="email" placeholder="Enter email"
+                                                name="email">
                                         </div>
                                         <div class="mb-3 mt-3">
-                                            <label for="name">Name:</label>
-                                            <input type="text" class="form-control" id="name"
-                                                value="{{ $data->productName }}" name="name">
+                                            <label for="name">Customer Name:</label>
+                                            <input value="{{ $eCus->customerName }}" type="text"
+                                                class="form-control" id="name" placeholder="Enter customer name"
+                                                name="name">
                                         </div>
                                         <div class="mb-3 mt-3">
-                                            <label for="price">Price:</label>
-                                            <input type="number" class="form-control" id="price"
-                                                value="{{ $data->productPrice }}" name="price">
+                                            <label for="pass">Password:</label>
+                                            <input value="{{ $eCus->customerPass }}" type="text"
+                                                class="form-control" id="pass" placeholder="Enter password"
+                                                name="pass">
                                         </div>
                                         <div class="mb-3 mt-3">
-                                            <label for="image">Image:</label>
-                                            <input type="file" class="form-control" id="image"
-                                                name="image">
-                                            <input type="text" class="form-control" id="old_image"
-                                                name="old_image" value="{{ $data->productImage }}">
+                                            <label for="photo">Photo:</label>
+                                            <input type="file" class="form-control" id="photo"
+                                                name="photo">
+                                            <input value="{{ $eCus->customerPhoto }}" readonly type="text"
+                                                class="form-control" id="oldphoto" name="oldphoto">
                                         </div>
                                         <div class="mb-3 mt-3">
-                                            <label for="details">Details:</label>
-                                            <textarea class="form-control" rows="5" id="details" name="details">
-                            {{ $data->productDetails }}
-                        </textarea>
+                                            <label for="address">Address:</label>
+                                            <input value="{{ $eCus->customerAddress }}" type="text"
+                                                class="form-control" id="address" name="address">
                                         </div>
                                         <div class="mb-3 mt-3">
-                                            <label for="category">Category:</label>
-                                            <select name="category" id="category" class="form-control">
-                                                @foreach ($category as $cat)
-                                                    <option value="{{ $cat->catID }}"
-                                                        {{ $cat->catID == $data->catID ? 'selected' : '' }}>
-                                                        {{ $cat->catName }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <label for="phone">Phone:</label>
+                                            <input value="{{ $eCus->customerPhone }}" type="text"
+                                                class="form-control" id="phone" name="phone">
                                         </div>
                                         <button type="update" class="btn btn-primary">Update</button>
-                                        <a href="{{ url('admin/products') }}" class="btn btn-danger"> Back </a>
+                                        <a href="{{ url('admin/customers') }}" class="btn btn-danger"> Back </a>
                                     </form>
                                 </div>
                             </div>

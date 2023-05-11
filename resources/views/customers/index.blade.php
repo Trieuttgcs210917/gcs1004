@@ -36,11 +36,7 @@
 <!-- body -->
 
 <body class="main-layout">
-    <!-- loader  -->
-    <div class="loader_bg">
-        <div class="loader"><img src="images/loading.gif" alt="#" /></div>
-    </div>
-    <!-- end loader -->
+
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -55,11 +51,6 @@
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                         <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
                             <div class="collapse navbar-collapse" id="navbarsExample04">
                                 <ul class="navbar-nav mr-auto">
                                     @if (Session::has('customerEmail'))
@@ -281,7 +272,9 @@
                             @foreach ($products as $product)
                                 <div class="col-md-4 margin_bottom1">
                                     <div class="product_box">
-                                        <figure><img src="pro_img/{{ $product->productImage }}" width="100px" height="100px"></figure>
+                                        <a href="{{ url('customers/productDetail/' . $product->productID) }}"><img
+                                                src="pro_img/{{ $product->productImage }}" width="100px"
+                                                height="100px"></a>
                                         <h3>{{ $product->productName }}</h3>
                                         <h4>{{ $product->productPrice }}</h4>
                                     </div>

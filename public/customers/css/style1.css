@@ -28,6 +28,8 @@
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box !important;
 }
 
@@ -39,7 +41,6 @@ body {
   color: #666666;
   font-size: 14px;
   font-family: "Poppins", sans-serif;
-  line-height: 1.80857;
   font-weight: normal;
 }
 
@@ -306,8 +307,7 @@ ul.btn li:last-child {
 
 .navigation.navbar {
   float: right;
-  padding-top: 31px !important;
-  padding: 0;
+  padding: 30px 0;
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link {
@@ -355,8 +355,7 @@ ul.btn li:last-child {
 
 .header {
   width: 100%;
-  padding: 30px 30px;
-  background: transparent;
+  background-color: #000;
   position: absolute;
   z-index: 999;
 }
@@ -503,7 +502,7 @@ ul.btn li:last-child {
 
 .titlepage {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 }
 
 .titlepage h2 {
@@ -586,23 +585,17 @@ ul.btn li:last-child {
 /** products section **/
 
 .products {
-  margin-top: 90px;
   background: #f7f7f7;
   padding: 90px 0 90px 0;
 }
 
 .our_products {
   background-color: #fff;
-  padding: 90px 0;
+  padding: 60px 30px;
 }
 
 .our_products .product_box {
   text-align: center;
-  margin-bottom: 30px;
-}
-
-.our_products .product_box figure {
-  margin: 0;
 }
 
 .our_products .product_box h3 {
@@ -628,19 +621,23 @@ ul.btn li:last-child {
 }
 
 .our_products .read_more {
-  margin: 0 auto;
   display: block;
-  margin-top: 50px;
+  margin-top: 16px;
   background-color: transparent;
   border: #48ca95 solid 2px;
   color: #48ca95 !important;
-  max-width: 232px;
   padding: 15px 0;
 }
 
 .our_products .read_more:hover {
   background: #48ca95;
   color: #000 !important;
+}
+
+.description-content {
+  font-size: 1em;
+  line-height: 2em;
+  word-break: break-all;
 }
 
 /** end products section **/
