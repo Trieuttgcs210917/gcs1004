@@ -34,6 +34,7 @@ Route::get('admin/login', [AdminController::class, 'login'])->name('login');
 Route::post('admin/checkLogin', [AdminController::class, 'checkLogin'])->name('checkLogin');
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('logout');
 Route::get('admin/products', [ProductController::class, 'productsAdmin'])->name('products');
+Route::get('admin/admins', [AdminController::class, 'admins'])->name('admins');
 Route::get('admin/customers', [AdminController::class, 'customers'])->name('customers');
 Route::get('admin/categories', [AdminController::class, 'categories'])->name('categories');
 
@@ -42,6 +43,12 @@ Route::post('admin/save', [AdminController::class, 'save'])->name('save');
 Route::get('admin/edit/{id}', [AdminController::class, 'edit'])->name('edit');
 Route::post('admin/update', [AdminController::class, 'update'])->name('update');
 Route::get('admin/delete/{id}',[AdminController::class, 'delete'])->name('delete');
+
+Route::get('admin/addAdmin', [AdminController::class, 'addAdmin'])->name('addAdmin');
+Route::post('admin/saveAdmin', [AdminController::class, 'saveAdmin'])->name('saveAdmin');
+Route::get('admin/editAdmin/{id}', [AdminController::class, 'editAdmin'])->name('editAdmin');
+Route::post('admin/updateAdmin', [AdminController::class, 'updateAdmin'])->name('updateAdmin');
+Route::get('admin/deleteAdmin/{id}',[AdminController::class, 'deleteAdmin'])->name('deleteAdmin');
 
 Route::get('admin/addCustomer', [AdminController::class, 'addCustomer'])->name('addCustomer');
 Route::post('admin/saveCustomer', [AdminController::class, 'saveCustomer'])->name('saveCustomer');

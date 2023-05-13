@@ -94,6 +94,50 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Product deleted successfully!');
     }
 
+    public function admins()
+    {
+        $data = Admin::all();
+        return view('admin.admins', compact('data'));
+    }
+
+    public function addAdmin()
+    {
+        return view('admin/addAdmin');
+    }
+
+    public function saveAdmin(Request $request)
+    {
+        $pro = new Admin();
+        $pro->adminID = $request->id;
+        $pro->adminPass = $request->pass;
+        $pro->adminPhoto = $request->photo;
+        $pro->adminFullname = $request->name;
+        $pro->save();
+        return redirect('admin/admins')->with('success','Admin added successfully!');
+    }
+
+    public function editAdmin($id)
+    {
+        $eAdm = Admin::where('adminID', $id)->first();
+        return view('admin/editAdmin', compact('eAdm'));
+    }
+
+    public function updateAdmin(Request $request)
+    {
+        Admin::where('adminID', '=', $request->id)->update([
+            'adminPass' => $request->pass,
+            'adminPhoto' => $request->photo,
+            'adminFullname' => $request->name,
+        ]);
+        return redirect('admin/admins')->with('success','Admin update successfully!');
+    }
+    
+    public function deleteAdmin($id)
+    {
+        $dAdm = Admin::where('adminID', '=', $id)->delete();
+        return redirect('admin/admins')->with('success','Admin deleted successfully!');
+    }
+
     public function customers()
     {
         $data = Customer::all();

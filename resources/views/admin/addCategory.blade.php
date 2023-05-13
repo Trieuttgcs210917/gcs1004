@@ -291,6 +291,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href='{{ url('admin/admins') }}'>
+                            <span class="icon-bg"><i class="fa fa-lock"
+                                    style="font-size:16px;color:#49be25"></i></span>
+                            <span class="menu-title">Admins</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href='{{ url('admin/customers') }}'>
                             <span class="icon-bg"><i class="fa fa-user"
                                     style="font-size:16px;color:#49be25"></i></span>

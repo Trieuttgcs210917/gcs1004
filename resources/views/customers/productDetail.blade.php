@@ -63,11 +63,11 @@
                                             <a class="nav-link" href='{{ url('customers/login') }}'>Login</a>
                                         </li>
                                     @endif
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="#">Home</a>
-                                    </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Products</a>
+                                        <a class="nav-link" href='{{ url('customers/index') }}'>Home</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href='{{ url('customers/products') }}'>Products</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">About</a>
@@ -119,7 +119,7 @@
                                 <div class="col-md-8">
                                     <h2>{{ $products->productName }}</h2>
                                     <h2>Category: {{ $products->catName }}</h2>
-                                    <h2>Price: {{ $products->productPrice }}</h2>
+                                    <h2>Price: {{ $products->productPrice }} VND</h2>
                                     <h2>Description:</h2>
                                     <p class="description-content">
                                         {{ $products->productDetails }}Honorificabilitudinitatibus

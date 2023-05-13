@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Database\Eloquent\Collection\paginate;
 
 class CustomerController extends Controller
 {
     public function index() {
-        $products = Product::all();
-        return view('customers.index', compact('products'));
+        $products = Product::select('products.*', 'categories.catName')
+        ->join('categories', 'products.catID', '=', 'categories.catID')
+        ->paginate(10);
+        $category = Category::all();
+        return view('customers.index', compact('products','category'));
     }
 
     public function register()

@@ -22,6 +22,7 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -291,6 +292,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href='{{ url('admin/admins') }}'>
+                            <span class="icon-bg"><i class="fa fa-lock"
+                                    style="font-size:16px;color:#49be25"></i></span>
+                            <span class="menu-title">Admins</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href='{{ url('admin/customers') }}'>
                             <span class="icon-bg"><i class="fa fa-user"
                                     style="font-size:16px;color:#49be25"></i></i></span>
@@ -386,7 +394,7 @@
                                     <div style="margin-right: 5%; margin-bottom: 20px; float:right">
                                         <a href="{{ url('admin/add') }}" class="btn btn-primary">Add product</a>
                                     </div>
-                                    <table id="myDataTable" class="table table-hover">
+                                    <table id="myTable" class="table table-hover">
                                         <thead class="table-success">
                                             <tr>
                                                 <th>ID</th>
@@ -403,7 +411,7 @@
                                                 <tr>
                                                     <td>{{ $product->productID }}</td>
                                                     <td>{{ $product->productName }}</td>
-                                                    <td>{{ $product->productPrice }}</td>
+                                                    <td>{{ $product->productPrice }} VND</td>
                                                     <td><img src="{{ asset('admin/assets/pro_img/' . $product->productImage) }}"
                                                             alt="" style="border-radius: 0%"></td>
                                                     <td>{{ $product->productDetails }}</td>
@@ -455,6 +463,10 @@
     <script src="../assets/js/off-canvas.js"></script>
     <script src="../assets/js/hoverable-collapse.js"></script>
     <script src="../assets/js/misc.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->

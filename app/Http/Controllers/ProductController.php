@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection\paginate;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -63,10 +64,12 @@ class ProductController extends Controller
     
     public function products()
     {
-        $data = Product::select('products.*', 'categories.catName')
+        $products = Product::select('products.*', 'categories.catName')
         ->join('categories', 'products.catID', '=', 'categories.catID')
-        ->get();
-        return view('customers.products', compact('data'));
+        ->where('productID', $id)
+        ->paginate(10);
+        $category = Category::all();
+        return view('customers.products', compact('products', 'category'));
     }
 
     public function productsAdmin()
