@@ -66,7 +66,6 @@ class ProductController extends Controller
     {
         $products = Product::select('products.*', 'categories.catName')
         ->join('categories', 'products.catID', '=', 'categories.catID')
-        ->where('productID', $id)
         ->paginate(10);
         $category = Category::all();
         return view('customers.products', compact('products', 'category'));
@@ -88,6 +87,25 @@ class ProductController extends Controller
                             ->get();
         $category = Category::all();
         return view('customers.productDetail', compact('product','category'));
+    }
+
+    public function category($id)
+    {
+        $products = Product::select()->where('catID', $id)->paginate(10);
+        $category = Category::all();
+        return view('customers.category', compact('products', 'category'));
+    }
+
+    public function category1($id)
+    {
+        $products = Product::select()->where('catID', $id)->paginate(10);
+        $category = Category::all();
+        return view('customers.category1', compact('products', 'category'));
+    }
+
+    public function shoppingcart()
+    {
+        return view('customers.shoppingcart');
     }
 }
 

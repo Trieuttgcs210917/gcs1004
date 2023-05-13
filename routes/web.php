@@ -22,6 +22,9 @@ Route::get('delete/{id}',[ProductController::class, 'delete']);
 Route::get('customers/index',[CustomerController::class, 'index']);
 Route::get('customers/products', [ProductController::class, 'products']);
 Route::get('customers/productDetail/{id}',[ProductController::class,'productDetail']);
+Route::get('customers/category/{id}',[ProductController::class,'category']);
+Route::get('customers/category1/{id}',[ProductController::class,'category1']);
+Route::get('customers/shoppingcart',[ProductController::class,'shoppingcart']);
 
 Route::get('customers/register', [CustomerController::class, 'register']);
 Route::post('customers/registerProcess', [CustomerController::class, 'registerProcess'])->name('registerProcess');

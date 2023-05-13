@@ -1052,5 +1052,34 @@ ul.social_icon li a:hover {
 .laptop1_img figure img {
   width: 100%;
 }
+/** end laptop **/
+
+.laptop1 {
+  background-color: #f6f6f6;
+  padding: 90px 0;
+}
+
+.laptop1 .titlepage {
+  text-align: right;
+}
+
+.laptop1 .titlepage h2 {
+  max-width: inherit;
+  border: inherit;
+  color: #000;
+}
+
+.laptop1 .titlepage p {
+  padding: 30px 0;
+  color: #000;
+}
+
+.laptop1_img figure {
+  margin: 0;
+}
+
+.laptop1_img figure img {
+  width: 100%;
+}
 
 /** end laptop **/

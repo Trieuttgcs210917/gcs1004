@@ -414,7 +414,9 @@
                                                     <td>{{ $product->productPrice }} VND</td>
                                                     <td><img src="{{ asset('admin/assets/pro_img/' . $product->productImage) }}"
                                                             alt="" style="border-radius: 0%"></td>
-                                                    <td>{{ $product->productDetails }}</td>
+                                                    <td>
+                                                        <textarea>{{ $product->productDetails }}</textarea>
+                                                    </td>
                                                     <td>{{ $product->catName }}</td>
                                                     <td>
                                                         <a href="{{ url('admin/edit/' . $product->productID) }}"

@@ -14,15 +14,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- style css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- Responsive-->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="icon" href="../images/fevicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text_img">
-                                        <figure><img src="images/pct.png" alt="#" /></figure>
+                                        <figure><img src="../images/pct.png" alt="#" /></figure>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text_img">
-                                        <figure><img src="images/pct.png" alt="#" /></figure>
+                                        <figure><img src="../images/pct.png" alt="#" /></figure>
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +185,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text_img">
-                                        <figure><img src="images/pct.png" alt="#" /></figure>
+                                        <figure><img src="../images/pct.png" alt="#" /></figure>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text_img">
-                                        <figure><img src="images/pct.png" alt="#" /></figure>
+                                        <figure><img src="../images/pct.png" alt="#" /></figure>
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +229,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text_img">
-                                        <figure><img src="images/pct.png" alt="#" /></figure>
+                                        <figure><img src="../images/pct.png" alt="#" /></figure>
                                     </div>
                                 </div>
                             </div>
@@ -252,7 +252,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="box_text">
-                        <i><img src="images/thr.png" alt="#" /></i>
+                        <i><img src="../images/thr.png" alt="#" /></i>
                         <h3>Computer</h3>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have
                             suffered alteration in some form, by injected humour, or randomised words which don't look
@@ -261,7 +261,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="box_text">
-                        <i><img src="images/thr1.png" alt="#" /></i>
+                        <i><img src="../images/thr1.png" alt="#" /></i>
                         <h3>Laptop</h3>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have
                             suffered alteration in some form, by injected humour, or randomised words which don't look
@@ -270,7 +270,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="box_text">
-                        <i><img src="images/thr2.png" alt="#" /></i>
+                        <i><img src="../images/thr2.png" alt="#" /></i>
                         <h3>Tablet</h3>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have
                             suffered alteration in some form, by injected humour, or randomised words which don't look
@@ -311,7 +311,7 @@
                                 <div class="col-md-4 margin_bottom1">
                                     <div class="product_box">
                                         <a href="{{ url('customers/productDetail/' . $product->productID) }}"><img
-                                                src="pro_img/{{ $product->productImage }}" width="100px"
+                                                src="../pro_img/{{ $product->productImage }}" width="100px"
                                                 height="100px"></a>
                                         <h3>{{ $product->productName }}</h3>
                                         <h4>{{ $product->productPrice }} VND</h4>
@@ -339,7 +339,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="laptop_box">
-                        <figure><img src="images/pc.png" alt="#" /></figure>
+                        <figure><img src="../images/pc.png" alt="#" /></figure>
                     </div>
                 </div>
             </div>
@@ -372,7 +372,7 @@
                                         <div class="row">
                                             <div class="col-md-9 offset-md-3">
                                                 <div class="test_box">
-                                                    <i><img src="images/cos.png" alt="#" /></i>
+                                                    <i><img src="../images/cos.png" alt="#" /></i>
                                                     <h4>Sandy Miller</h4>
                                                     <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -393,7 +393,7 @@
                                         <div class="row">
                                             <div class="col-md-9 offset-md-3">
                                                 <div class="test_box">
-                                                    <i><img src="images/cos.png" alt="#" /></i>
+                                                    <i><img src="../images/cos.png" alt="#" /></i>
                                                     <h4>Sandy Miller</h4>
                                                     <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -414,7 +414,7 @@
                                         <div class="row">
                                             <div class="col-md-9 offset-md-3">
                                                 <div class="test_box">
-                                                    <i><img src="images/cos.png" alt="#" /></i>
+                                                    <i><img src="../images/cos.png" alt="#" /></i>
                                                     <h4>Sandy Miller</h4>
                                                     <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -488,7 +488,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <img class="logo1" src="images/logo1.png" alt="#" />
+                        <img class="logo1" src="../images/logo1.png" alt="#" />
                         <ul class="social_icon">
                             <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -534,13 +534,13 @@
     </footer>
     <!-- end footer -->
     <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
     <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 
 </html>

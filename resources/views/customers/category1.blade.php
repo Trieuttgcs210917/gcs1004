@@ -33,7 +33,33 @@
 <!-- body -->
 
 <body>
+    <style>
+        #menu ul {
+            background: #1f568b;
+            list-style-type: none;
+            text-align: center;
+        }
 
+        #menu li {
+            color: #f1f1f1;
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: -5px;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        #menu a:hover {
+            background: #f1f1f1;
+            color: #333;
+        }
+    </style>
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -99,40 +125,42 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>Detail</h2>
+                        <h2>Our Products</h2>
                     </div>
                 </div>
+            </div>
+            <div id="menu">
+                <!--Start the unordered list after the opening menu division -->
+                <ul>
+                    @foreach ($category as $categories)
+                        <li class="active" style="padding: auto;">
+                            <a href="{{ url('customers/category1/' . $categories->catID) }}"
+                                class="{{ request()->is('customers/category1/' . $categories->catID) ? 'active' : '' }}">{{ $categories->catName }}</a>
+                        </li>
+                        &nbsp;
+                    @endforeach
+                </ul>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="our_products">
                         <div class="row">
-                            @foreach ($product as $products)
-                                <div class="col-md-4">
+                            @foreach ($products as $product)
+                                <div class="col-md-4 margin_bottom1">
                                     <div class="product_box">
-                                        <a href="{{ url('customers/productDetail/' . $products->productID) }}"><img
-                                                src="../pro_img/{{ $products->productImage }}" width="100%"
-                                                style="border: 1px solid #666;"></a>
+                                        <a href="{{ url('customers/productDetail/' . $product->productID) }}"><img
+                                                src="../pro_img/{{ $product->productImage }}" width="100px"
+                                                height="100px"></a>
+                                        <h3>{{ $product->productName }}</h3>
+                                        <h4>{{ $product->productPrice }} VND</h4>
                                     </div>
-                                </div>
-
-                                <div class="col-md-8">
-                                    <h2>{{ $products->productName }}</h2>
-                                    <h2>Category: {{ $products->catName }}</h2>
-                                    <h2>Price: {{ $products->productPrice }} VND</h2>
-                                    <h2>Description:</h2>
-                                    <p class="description-content">
-                                        {{ $products->productDetails }}Honorificabilitudinitatibus
-                                        califragilisticexpialidocious
-                                        Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu
-                                        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉</p>
-                                    <a class="read_more" href='{{ url('customers/shoppingcart') }}'>Add to cart</a>
                                 </div>
                             @endforeach
                         </div>
                     </div>
                 </div>
             </div>
+            {{ $products->links('vendor/pagination/bootstrap-5') }}
         </div>
     </div>
     <!-- end products -->

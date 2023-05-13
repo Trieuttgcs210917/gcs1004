@@ -384,7 +384,7 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>Customer List</h2>
+                                    <h2>Admin List</h2>
                                     @if (Session::has('success'))
                                         <div class="alert alert-success" role="alert">
                                             {{ Session::get('success') }}
@@ -408,9 +408,7 @@
                                             @foreach ($data as $admin)
                                                 <tr>
                                                     <td>{{ $admin->adminID }}</td>
-                                                    <td>
-                                                        <Textarea>{{ $admin->adminPass }}</Textarea>
-                                                    </td>
+                                                    <td>{{ $admin->adminPass }}</td>
                                                     <td>{{ $admin->adminFullname }}</td>
                                                     <td><img src="{{ asset('admin/assets/pro_img/' . $admin->adminPhoto) }}"
                                                             alt="" style="border-radius: 0%"></td>

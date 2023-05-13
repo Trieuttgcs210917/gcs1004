@@ -33,7 +33,33 @@
 <!-- body -->
 
 <body>
+    <style>
+        #menu ul {
+            background: #1f568b;
+            list-style-type: none;
+            text-align: center;
+        }
 
+        #menu li {
+            color: #f1f1f1;
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: -5px;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        #menu a:hover {
+            background: #f1f1f1;
+            color: #333;
+        }
+    </style>
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -102,6 +128,18 @@
                         <h2>Our Products</h2>
                     </div>
                 </div>
+            </div>
+            <div id="menu">
+                <!--Start the unordered list after the opening menu division -->
+                <ul>
+                    @foreach ($category as $categories)
+                        <li class="active" style="padding: auto;">
+                            <a href="{{ url('customers/category1/' . $categories->catID) }}"
+                                class="{{ request()->is('customers/category1/' . $categories->catID) ? 'active' : '' }}">{{ $categories->catName }}</a>
+                        </li>
+                        &nbsp;
+                    @endforeach
+                </ul>
             </div>
             <div class="row">
                 <div class="col-md-12">
