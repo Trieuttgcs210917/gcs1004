@@ -120,7 +120,7 @@
                             aria-labelledby="profileDropdown" data-x-placement="bottom-end">
                             <div class="p-3 text-center bg-primary">
                                 <img class="img-avatar img-avatar48 img-avatar-thumb"
-                                    src="../../assets/images/faces/face28.png" alt="">
+                                    src="assets/pro_img/{{ Session::get('adminPhoto') }}" alt="">
                             </div>
                             <div class="p-2">
                                 <h5 class="dropdown-header text-uppercase ps-2 text-dark">User Options</h5>
@@ -153,7 +153,7 @@
                                     <i class="mdi mdi-lock ms-1"></i>
                                 </a>
                                 <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
-                                    href="#">
+                                    href="{{ route('logout') }}">
                                     <span>Log Out</span>
                                     <i class="mdi mdi-logout ms-1"></i>
                                 </a>
@@ -172,8 +172,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="../../assets/images/faces/face4.jpg" alt="image"
-                                        class="profile-pic">
+                                    <img src="assets/images/faces/face4.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div
                                     class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -185,8 +184,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="../../assets/images/faces/face2.jpg" alt="image"
-                                        class="profile-pic">
+                                    <img src="assets/images/faces/face2.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div
                                     class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -198,8 +196,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="../../assets/images/faces/face3.jpg" alt="image"
-                                        class="profile-pic">
+                                    <img src="assets/images/faces/face3.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div
                                     class="preview-item-content d-flex align-items-start flex-column justify-content-center">
@@ -457,14 +454,14 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="../assets/js/off-canvas.js"></script>
-    <script src="../assets/js/hoverable-collapse.js"></script>
-    <script src="../assets/js/misc.js"></script>
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script>
         let table = new DataTable('#myTable');

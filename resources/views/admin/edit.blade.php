@@ -119,7 +119,7 @@
                             aria-labelledby="profileDropdown" data-x-placement="bottom-end">
                             <div class="p-3 text-center bg-primary">
                                 <img class="img-avatar img-avatar48 img-avatar-thumb"
-                                    src="../../assets/images/faces/face28.png" alt="">
+                                    src="../../admin/assets/pro_img/{{ Session::get('adminPhoto') }}" alt="">
                             </div>
                             <div class="p-2">
                                 <h5 class="dropdown-header text-uppercase ps-2 text-dark">User Options</h5>
@@ -415,9 +415,7 @@
                                         </div>
                                         <div class="mb-3 mt-3">
                                             <label for="details">Details:</label>
-                                            <textarea class="form-control" rows="5" id="details" name="details">
-                            {{ $data->productDetails }}
-                        </textarea>
+                                            <textarea class="form-control" rows="5" id="details" name="details">{{ $data->productDetails }}</textarea>
                                         </div>
                                         <div class="mb-3 mt-3">
                                             <label for="category">Category:</label>

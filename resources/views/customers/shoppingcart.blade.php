@@ -207,12 +207,15 @@
                                         </div>
 
                                         <hr class="my-4">
-
-                                        <div class="pt-5">
-                                            <h6 class="mb-0"><a href="#!" class="text-body"><i
-                                                        class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
-                                            </h6>
-                                        </div>
+                                        @foreach ($product as $products)
+                                            <div class="pt-5">
+                                                <h6 class="mb-0"><a
+                                                        href="{{ url('customers/productDetail/' . $products->productID) }}"
+                                                        class="text-body"><i
+                                                            class="fas fa-long-arrow-alt-left me-2"></i>Back</a>
+                                                </h6>
+                                            </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="col-lg-4 bg-grey">
@@ -229,10 +232,8 @@
 
                                         <div class="mb-4 pb-2">
                                             <select class="select">
-                                                <option value="1">Standard-Delivery- €5.00</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                                <option value="4">Four</option>
+                                                <option value="1">Standard-Delivery</option>
+                                                <option value="2">Fast-Delivery</option>
                                             </select>
                                         </div>
 

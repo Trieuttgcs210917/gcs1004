@@ -105,7 +105,11 @@ class ProductController extends Controller
 
     public function shoppingcart()
     {
-        return view('customers.shoppingcart');
+        $product = Product::select('products.*', 'categories.catName')
+                            ->join('categories', 'products.catID', '=', 'categories.catID')
+                            ->get();
+        $category = Category::all();
+        return view('customers.shoppingcart', compact('product', 'category'));
     }
 }
 

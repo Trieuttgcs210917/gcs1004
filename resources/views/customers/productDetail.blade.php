@@ -122,10 +122,7 @@
                                     <h2>Price: {{ $products->productPrice }} VND</h2>
                                     <h2>Description:</h2>
                                     <p class="description-content">
-                                        {{ $products->productDetails }}Honorificabilitudinitatibus
-                                        califragilisticexpialidocious
-                                        Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu
-                                        次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉</p>
+                                        {{ $products->productDetails }}</p>
                                     <a class="read_more" href='{{ url('customers/shoppingcart') }}'>Add to cart</a>
                                 </div>
                             @endforeach
