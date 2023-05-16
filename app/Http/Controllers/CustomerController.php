@@ -51,6 +51,9 @@ class CustomerController extends Controller
                 $request->session()->put('customerEmail', $cus->customerEmail);
                 $request->session()->put('customerPass', $cus->customerPass);
                 $request->session()->put('customerName', $cus->customerName);
+                $request->session()->put('customerPhone', $cus->customerPhone);
+                $request->session()->put('customerAddress', $cus->customerAddress);
+                $request->session()->put('customerPhoto', $cus->customerPhoto);
                 return redirect('customers/index');
             } else {
                 return back()->with('fail', 'Password is not matched!');
@@ -66,5 +69,28 @@ class CustomerController extends Controller
         Session::pull('customerPass');
         Session::pull('customerName');
         return redirect('customers/index');
+    }
+
+    public function editProfile($email)
+    {
+        $data = Customer::where('customerEmail', '=', $email)->first();
+        return view('customers/profile', compact('data'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        Customer::where('customerEmail', '=', $request->email)->update([
+            'customerName' => $request->name,
+            'customerPass' => Hash::make($request->pass),
+            'customerAddress' => $request->address,
+            'customerPhone' => $request->phone,
+            'customerPhoto' => $request->photo,
+        ]);
+        $request->session()->put('customerName', $request->name);
+        $request->session()->put('customerPass', $request->pass);
+        $request->session()->put('customerAddress', $request->address);
+        $request->session()->put('customerPhone', $request->phone);
+        $request->session()->put('customerPhoto', $request->photo);
+        return redirect()->back()->with('success','Account update successfully!');
     }
 }

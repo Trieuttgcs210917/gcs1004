@@ -17,7 +17,7 @@
     <!-- Responsive-->
     <link rel="stylesheet" href="../css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="../images/fevicon.png" type="image/gif" />
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
@@ -33,7 +33,33 @@
 <!-- body -->
 
 <body>
+    <style>
+        #menu ul {
+            background: #1f568b;
+            list-style-type: none;
+            text-align: center;
+        }
 
+        #menu li {
+            color: #f1f1f1;
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: -5px;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        #menu a:hover {
+            background: #f1f1f1;
+            color: #333;
+        }
+    </style>
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -53,7 +79,7 @@
                                     @if (Session::has('customerEmail'))
                                         <li class="nav-item"><a class="nav-link" href="#">Welcome:
                                                 {{ Session::get('customerName') }}</a></li>
-                                        <li class="nav-item"><a class="nav-link"
+                                        <li class="nav-item"><a class="nav-link active"
                                                 href="{{ url('customers/profile/' . Session::get('customerEmail')) }}">Account</a>
                                         <li class="nav-item"><a class="nav-link"
                                                 href="{{ url('customers/logout') }}">Logout</a></li>
@@ -68,7 +94,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href='{{ url('customers/index') }}'>Home</a>
                                     </li>
-                                    <li class="nav-item active">
+                                    <li class="nav-item">
                                         <a class="nav-link" href='{{ url('customers/products') }}'>Products</a>
                                     </li>
                                     <li class="nav-item">
@@ -96,62 +122,53 @@
     <!-- three_box -->
 
     <!-- products -->
-    <div class="products">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="titlepage">
-                        <h2>Detail</h2>
+    <div class="container">
+        <div class="card">
+            <form style="display: grid; margin-top: 100px; justify-content:center;"
+                action="{{ url('customers/updateProfile/' . Session::get('customerEmail')) }}" method="POST">
+                @csrf
+                <h2 style="text-align: center">Edit Account</h2>
+                @if (Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('success') }}
                     </div>
+                @endif
+                <div class="mb-3 mt-3" style="margin-top: 10px">
+                    <label for="email" style="float: left">Email:</label>
+                    <input style="float: right; " type="email" class="form-control" id="email" readonly
+                        value="{{ Session::get('customerEmail') }}" name="email">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="our_products">
-                        <div class="row">
-                            @foreach ($product as $products)
-                                <div class="col-md-4">
-                                    <div class="product_box">
-                                        <a href="{{ url('customers/productDetail/' . $products->productID) }}"><img
-                                                src="../pro_img/{{ $products->productImage }}" width="100%"
-                                                style="border: 1px solid #666;"></a>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-8">
-                                    <h2>{{ $products->productName }}</h2>
-                                    <h2>Category: {{ $products->catName }}</h2>
-                                    <h2>Price: {{ $products->productPrice }} VND</h2>
-                                    <h2>Description:</h2>
-                                    <p class="description-content">
-                                        {{ $products->productDetails }}</p>
-                                    <a class="read_more" href='{{ url('customers/shoppingcart') }}'>Add to cart</a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
+                <div class="mb-3 mt-3" style="margin-top: 10px">
+                    <label for="name" style="float: left">Name:</label>
+                    <input style="float: right" type="text" class="form-control" id="name"
+                        value="{{ Session::get('customerName') }}" name="name">
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- end products -->
-    <!-- laptop  section -->
-    <div class="laptop">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="titlepage">
-                        <p>Every Computer and laptop</p>
-                        <h2>Up to 40% off !</h2>
-                        <a class="read_more" href="#">Shop Now</a>
-                    </div>
+                <div class="mb-3 mt-3" style="margin-top: 10px">
+                    <label for="pass" style="float: left">Password:</label>
+                    <input style="float: right" type="text" class="form-control" id="pass"
+                        value="{{ Session::get('customerPass') }}" name="pass">
                 </div>
-                <div class="col-md-6">
-                    <div class="laptop_box">
-                        <figure><img src="../images/pc.png" alt="#" /></figure>
-                    </div>
+                <div class="mb-3 mt-3" style="margin-top: 10px">
+                    <label for="address" style="float: left">Address:</label>
+                    <input style="float: right" type="text" class="form-control" id="address"
+                        value="{{ Session::get('customerAddress') }}" name="address">
                 </div>
-            </div>
+                <div class="mb-3 mt-3" style="margin-top: 10px">
+                    <label for="phone" style="float: left">Phone:</label>
+                    <input style="float: right" type="number" class="form-control" id="phone"
+                        value="{{ Session::get('customerPhone') }}" name="phone">
+                </div>
+                <div class="mb-3 mt-3" style="margin-top: 10px">
+                    <label for="photo" style="float: left">Photo:</label>
+                </div>
+                <input style="margin-top: 10px" type="file" class="form-control" id="photo" name="photo">
+                <input style="margin-top: 10px" type="text" class="form-control" readonly id="old_photo"
+                    name="old_photo" value="{{ Session::get('customerPhoto') }}">
+                <div class="mb-3 mt3" style="margin-top: 10px">
+                    <button style="float: left" type="submit" class="btn btn-primary">Update</button>
+                    <a style="float: right" href="{{ url('customers/index') }}" class="btn btn-danger">Back </a>
+                </div>
+            </form>
         </div>
     </div>
     </div>

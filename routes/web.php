@@ -24,6 +24,9 @@ Route::get('customers/products', [ProductController::class, 'products']);
 Route::get('customers/productDetail/{id}',[ProductController::class,'productDetail']);
 Route::get('customers/category/{id}',[ProductController::class,'category']);
 Route::get('customers/category1/{id}',[ProductController::class,'category1']);
+
+Route::get('customers/profile/{email}',[CustomerController::class, 'editProfile']);
+Route::post('customers/updateProfile/{email}', [CustomerController::class, 'updateProfile']);
 Route::get('customers/shoppingcart',[ProductController::class,'shoppingcart']);
 
 Route::get('customers/register', [CustomerController::class, 'register']);

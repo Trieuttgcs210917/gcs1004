@@ -83,6 +83,8 @@
                                         <li class="nav-item"><a class="nav-link" href="#">Welcome:
                                                 {{ Session::get('customerName') }}</a></li>
                                         <li class="nav-item"><a class="nav-link"
+                                                href="{{ url('customers/profile/' . Session::get('customerEmail')) }}">Account</a>
+                                        <li class="nav-item"><a class="nav-link"
                                                 href="{{ url('customers/logout') }}">Logout</a></li>
                                     @else
                                         <li class="nav-item">

@@ -395,6 +395,9 @@
                                             <label for="id">Admin id:</label>
                                             <input type="id" class="form-control" id="id"
                                                 placeholder="Enter id" name="id">
+                                            @if ($errors->has('id'))
+                                                <span class="text-danger">{{ $errors->first('id') }}</span>
+                                            @endif
                                         </div>
                                         <div class="mb-3 mt-3">
                                             <label for="pass">Password:</label>
